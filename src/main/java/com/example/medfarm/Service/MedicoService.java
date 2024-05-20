@@ -16,6 +16,11 @@ public class MedicoService implements IMedicoService {
     MedicoRepository medicoRepository;
 
     @Override
+    public Medico buscarPorCrm(String crm) {
+        return medicoRepository.findByCrm(crm);
+    }
+
+    @Override
     public List<Medico> listar() {
         return medicoRepository.findAll();
     }
@@ -51,5 +56,10 @@ public class MedicoService implements IMedicoService {
     @Override
     public boolean verificarId(long id) {
         return medicoRepository.existsById(id);
+    }
+
+    @Override
+    public boolean verificarCrm(String crm) {
+        return medicoRepository.existsByCrm(crm);
     }
 }

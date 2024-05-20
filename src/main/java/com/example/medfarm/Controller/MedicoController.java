@@ -1,14 +1,20 @@
 package com.example.medfarm.Controller;
 
 import com.example.medfarm.Models.Medico;
+
+import com.example.medfarm.Routes;
 import com.example.medfarm.Service.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -16,6 +22,23 @@ import java.util.Optional;
 public class MedicoController {
     @Autowired
     private MedicoService medicoService;
+    @Autowired
+    private Routes routes;
+
+
+    @GetMapping("/login")
+    public ModelAndView validarLogin(@RequestParam(value = "crm") String crm,
+                                     @RequestParam(value = "senha") String senha){
+        if(medicoService.verificarCrm(crm)){
+            if (medicoService.buscarPorCrm(crm).getSenha().equals(senha)){
+                Map<String,String> map = new HashMap<>();
+                map.put("nome",medicoService.buscarPorCrm(crm).getNome());
+                return new ModelAndView("loginaceito",map);
+            }
+        }
+        return null;
+    }
+
 
     @ResponseBody
     @GetMapping

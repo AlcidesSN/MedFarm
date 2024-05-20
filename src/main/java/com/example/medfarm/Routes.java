@@ -12,8 +12,14 @@ public class Routes {
     public String login(Map<String,String> model) {
         return "login";
     }
+
     @GetMapping({"/","/home"})
     public String home(Map<String,String> model) {
         return "home";
+    }
+
+    @GetMapping("/loginaceito")
+    public String aceito(Map<String,String> model) {
+        return "loginaceito";
     }
 }

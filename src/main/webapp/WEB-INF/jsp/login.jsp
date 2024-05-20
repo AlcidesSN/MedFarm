@@ -21,13 +21,13 @@
 
         <!-- Icon -->
         <div class="fadeIn first">
-            <img src="/img/temp.png" id="icon" alt="User Icon" />
+            <img src="/img/logo.png" id="icon" alt="User Icon" />
         </div>
 
         <!-- Login Form -->
-        <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="CRM">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="senha">
+        <form  method="GET" action="http://localhost:8080/medicos/login">
+            <input type="text"  id="login" class="fadeIn second" name="crm" placeholder="CRM">
+            <input type="text" id="password" class="fadeIn third" name="senha" placeholder="senha">
             <input type="submit" class="fadeIn fourth" value="Entrar">
         </form>
 

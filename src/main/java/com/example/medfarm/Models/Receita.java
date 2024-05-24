@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Receita {
+public class Receita implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +29,7 @@ public class Receita {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_medico")
     private Medico medico;
+
 
     @ManyToMany
     @JoinTable(

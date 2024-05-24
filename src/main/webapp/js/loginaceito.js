@@ -1,4 +1,4 @@
-function removerParametrosDaURL(url) {
+/*function removerParametrosDaURL(url) {
     // Criando um objeto URL a partir da URL fornecida
     const urlObj = new URL(url);
 
@@ -10,4 +10,4 @@ function removerParametrosDaURL(url) {
 }
 
 // Exemplo de uso:
-removerParametrosDaURL(window.location.href);
+removerParametrosDaURL(window.location.href);*/

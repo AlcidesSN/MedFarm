@@ -6,16 +6,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Entity
 @Table
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Farmacia {
+public class Farmacia implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_farmacia;
+    @Column
     private String nome;
     @Column
     private String cnpj;

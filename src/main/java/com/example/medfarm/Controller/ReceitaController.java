@@ -19,7 +19,7 @@ public class ReceitaController {
     ReceitaService receitaService;
 
     @ResponseBody
-    @GetMapping
+    @GetMapping("/h")
     public List<Receita> listar(){ return receitaService.listar();}
 
     @ResponseBody

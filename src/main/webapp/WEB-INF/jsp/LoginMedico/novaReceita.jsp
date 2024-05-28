@@ -1,5 +1,4 @@
 <% Date Date; %>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="com.example.medfarm.Models.Paciente" %>
 <%--

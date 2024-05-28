@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/medicos")
 public class MedicoController {
 
@@ -28,11 +28,11 @@ public class MedicoController {
 
 
 
-    @ResponseBody
+
     @GetMapping
     public List<Medico> listar(){ return medicoService.listar();}
 
-    @ResponseBody
+
     @PostMapping
     public ResponseEntity<?> criar(@RequestBody Medico medico){
         if(medicoService.criar(medico) == null){
@@ -43,7 +43,7 @@ public class MedicoController {
         }
     }
 
-    @ResponseBody
+
     @PutMapping("/{id}")
     public ResponseEntity<?> atualizar(@RequestBody Medico medico,@PathVariable long id){
         if(!medicoService.verificarId(id)){
@@ -55,13 +55,13 @@ public class MedicoController {
         }
     }
 
-    @ResponseBody
+
     @GetMapping("/{id}")
     public Optional<Medico> buscarId(@PathVariable long id){
         return medicoService.buscarPorID(id);
     }
 
-    @ResponseBody
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletar(@PathVariable long id){
         if(medicoService.deletar(id)){

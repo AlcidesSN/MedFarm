@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/farmacia")
 public class FarmaciaController {
 
@@ -19,11 +19,11 @@ public class FarmaciaController {
     @Autowired
     private FarmaciaService farmaciaService;
 
-    @ResponseBody
+
     @GetMapping
     public List<Farmacia> listar(){ return farmaciaService.listar();}
 
-    @ResponseBody
+
     @PostMapping
     public ResponseEntity<?> criar(@RequestBody Farmacia farmacia){
         if(farmaciaService.criar(farmacia) == null){
@@ -34,7 +34,7 @@ public class FarmaciaController {
         }
     }
 
-    @ResponseBody
+
     @PutMapping("/{id}")
     public ResponseEntity<?> atualizar(@RequestBody Farmacia farmacia,@PathVariable long id){
         if(!farmaciaService.verificarId(id)){
@@ -46,13 +46,13 @@ public class FarmaciaController {
         }
     }
 
-    @ResponseBody
+
     @GetMapping("/{id}")
     public Optional<Farmacia> buscarId(@PathVariable long id){
         return farmaciaService.buscarPorID(id);
     }
 
-    @ResponseBody
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletar(@PathVariable long id){
         if(farmaciaService.deletar(id)){

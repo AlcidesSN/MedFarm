@@ -1,13 +1,15 @@
 package com.example.medfarm.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.io.Serializable;
+
 import java.util.List;
+
 
 
 @Entity
@@ -28,11 +30,11 @@ public class Medicamento implements Serializable {
     private double quantidade;
     @Column
     private String viaAdiministracao;
-
-    @ManyToMany(mappedBy = "medicamentos")
-    private List<Receita> receitas;
-
     @Column
     private String observacao;
+    @ManyToMany(mappedBy = "medicamentos")
+    @JsonIgnoreProperties("medicamentos")
+    private List<Receita> receitas;
+
 }
 

@@ -1,5 +1,6 @@
 package com.example.medfarm.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table
@@ -26,4 +28,5 @@ public class Medico implements Serializable {
     private String senha;
     @Column
     private String assinatura;//mudar para alguma coisa relacionada a imagem
+
 }

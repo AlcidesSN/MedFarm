@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/medicamentos")
 public class MedicamentoController {
     @Autowired
     private MedicamentoService medicamentoService;
 
 
-    @ResponseBody
+
     @GetMapping
     public List<Medicamento> listar(){ return medicamentoService.listar();}
 
-    @ResponseBody
+
     @PostMapping
     public ResponseEntity<?> criar(@RequestBody Medicamento medicamento){
         if(medicamentoService.criar(medicamento) == null){
@@ -33,7 +33,7 @@ public class MedicamentoController {
         }
     }
 
-    @ResponseBody
+
     @PutMapping("/{id}")
     public ResponseEntity<?> atualizar(@RequestBody Medicamento medicamento,@PathVariable long id){
         if(!medicamentoService.verificarId(id)){
@@ -45,13 +45,13 @@ public class MedicamentoController {
         }
     }
 
-    @ResponseBody
+
     @GetMapping("/{id}")
     public Optional<Medicamento> buscarId(@PathVariable long id){
         return medicamentoService.buscarPorID(id);
     }
 
-    @ResponseBody
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletar(@PathVariable long id){
         if(medicamentoService.deletar(id)){

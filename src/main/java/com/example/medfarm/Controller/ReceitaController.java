@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/receitas")
 public class ReceitaController {
 
     @Autowired
     ReceitaService receitaService;
 
-    @ResponseBody
-    @GetMapping("/h")
+
+    @GetMapping()
     public List<Receita> listar(){ return receitaService.listar();}
 
-    @ResponseBody
+
     @PostMapping
     public ResponseEntity<?> criar(@RequestBody Receita receita){
         if(receitaService.criar(receita) == null){
@@ -33,7 +33,7 @@ public class ReceitaController {
         }
     }
 
-    @ResponseBody
+
     @PutMapping("/{id}")
     public ResponseEntity<?> atualizar(@RequestBody Receita receita,@PathVariable long id){
         if(!receitaService.verificarId(id)){
@@ -45,13 +45,13 @@ public class ReceitaController {
         }
     }
 
-    @ResponseBody
+
     @GetMapping("/{id}")
     public Optional<Receita> buscarId(@PathVariable long id){
         return receitaService.buscarPorID(id);
     }
 
-    @ResponseBody
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletar(@PathVariable long id){
         if(receitaService.deletar(id)){

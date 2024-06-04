@@ -1,5 +1,6 @@
 package com.example.medfarm.Models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -44,6 +45,7 @@ public class Receita implements Serializable {
     @ManyToOne
     private Farmacia farmacia;
     @Column
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date data;
 
 }

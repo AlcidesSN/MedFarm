@@ -32,7 +32,6 @@
             <form  method="POST" action="/logar">
                 <input type="text"  id="login" class="fadeIn second" name="crm" placeholder="CRM" value="${crm}">
                 <input type="text" id="password" class="fadeIn third" name="senha" placeholder="senha">
-                <p id="erro">${erro}</p>
                 <input type="submit" class="fadeIn fourth" value="Entrar">
             </form>
 

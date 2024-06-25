@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/receitas")
+@CrossOrigin( origins = "http://localhost:4200/")
 public class ReceitaController {
 
     @Autowired

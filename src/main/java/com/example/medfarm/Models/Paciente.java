@@ -20,7 +20,7 @@ import java.util.List;
 public class Paciente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_paciente;
+        private long id_paciente;
     @Column
     private String name;
     @Column

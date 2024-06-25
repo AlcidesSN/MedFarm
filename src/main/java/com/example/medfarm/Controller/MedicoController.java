@@ -20,6 +20,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/medicos")
+@CrossOrigin( origins = "http://localhost:4200/")
 public class MedicoController {
 
     @Autowired
